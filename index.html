@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Congbhing Bhangkalan - Beranda</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER DENGAN FOTO SURAMADU -->
+<header>
+  <h1>Jelajah Pesona Madura</h1>
+  <p>Mengungkap Rasa, Budaya, dan Keindahan Pulau Sapi Kerap.</p>
+</header>
+
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="makanan.html">Makanan</a>
+    <a href="wisata.html">Wisata</a>
+    <a href="kebudayaan.html">Kebudayaan</a>
+  </nav>
+
+  <!-- TEKS BERJALAN MODERN -->
+<div class="marquee-container">
+  <div class="marquee-content">
+    Jelajah keindahan budaya, kuliner, dan wisata khas Pulau Sapi Kerap.
+  </div>
+</div>
+
+
+   <!-- INTRO BOX -->
+  <section class="intro">
+    <h2>Selamat datang di Jelajah Pesona Madura</h2>
+    <p>
+      Jelajah Pulau Madura, Website ini berisi berbagai informasi
+      tentang ciri khas Pulau dengan ikonik sapi kerapannya. Mulai dari makanan khas, wisata populer, dan budaya lokal.
+    </p>
+  </section>
+
+<!-- ===============  CARD SLIDER KATEGORI  =============== -->
+<div class="container">
+
+    <!-- CARD MAKANAN -->
+    <div class="card">
+        <div class="slider">
+            <div class="slides">
+                <img src="img/bebek-sinjay.jpg">
+                <img src="img/sate-madura.jpg">
+                <img src="img/topak-lada.jpg">
+                <img src="img/nasi-serpang.jpg">
+                <img src="img/nasijagung.jpg">
+                <img src="img/kaldukokot.jpg">
+                <img src="img/bebek-songkem.jpg">
+                <img src="img/lorjuk.jpg">
+                <img src="img/tajin-sobih.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+            <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+
+        <h3>Makanan Khas Madura</h3>
+        <p>Kuliner autentik khas Pulau Sapi Kerap.</p>
+        <a href="makanan.html" class="btn">Jelajahi</a>
+    </div>
+
+    <!-- CARD WISATA -->
+    <div class="card">
+        <div class="slider">
+            <div class="slides">
+                <img src="img/suramadu.jpg">
+                <img src="img/pantai-siringkemuning.jpg">
+                <img src="img/aermata.jpg">
+                 <img src="img/jaddih.jpg">
+                <img src="img/mercusuar.jpg">
+                <img src="img/museum.jpg">
+                 <img src="img/masjid.jpg">
+                <img src="img/sarimuna.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+            <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+
+        <h3>Wisata Madura</h3>
+        <p>Tempat wisata populer.</p>
+        <a href="wisata.html" class="btn">Jelajahi</a>
+    </div>
+
+    <!-- CARD BUDAYA -->
+    <div class="card">
+        <div class="slider">
+            <div class="slides">
+                <img src="img/karapan-sapi.jpg">
+                <img src="img/tanean-lanjang.jpg">
+                <img src="img/ghul.jpg">
+                 <img src="img/muang.jpg">
+                <img src="img/nyadar.jpg">
+              
+            </div>
+            <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+            <button class="next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+
+        <h3>Kebudayaan Leluhur di Madura</h3>
+        <p>Tradisi dan budaya lokal.</p>
+        <a href="kebudayaan.html" class="btn">Jelajahi</a>
+    </div>
+  
+    </div> <!-- TUTUP CONTAINER -->
+
+
+     <!-- ABOUT SECTION -->
+  <section class="about">
+    <h2>Apa Itu "Jelajah Pesona Madura?</h2>
+    <p>
+      Jelajah Pulau Madura merupakan platform edukasi dan eksplorasi 
+      yang dibuat untuk memperkenalkan kekayaan Pulau Madura kepada masyarakat luas.
+      Mulai dari makanan khas yang melegenda, tempat wisata yang memukau, 
+      hingga kebudayaan tradisional yang sarat nilai-nilai lokal. 
+      Semua disajikan dengan tampilan visual menarik dan informasi yang mudah dipahami.
+    </p>
+  </section>
+  
+
+<footer>
+  <p>© 2025 Jelajah Pulau Madura • Eksplorasi Wisata, Kuliner & Budaya Madura</p>
+  <p>Dikembangkan oleh Siswa SMAN 1 Bangkalan: <strong>Bima Cakra Radjandra</strong> & <strong>Muhammad Rayendra Pasha</strong></p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    function updateSlide(card, index) {
+        const slides = card.querySelector(".slides");
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    window.nextSlide = function(btn) {
+        const card = btn.closest(".card");
+        const images = card.querySelectorAll(".slides img");
+        let index = parseInt(card.dataset.index || "0");
+
+        index = (index + 1) % images.length;
+        card.dataset.index = index;
+
+        updateSlide(card, index);
+    }
+
+    window.prevSlide = function(btn) {
+        const card = btn.closest(".card");
+        const images = card.querySelectorAll(".slides img");
+        let index = parseInt(card.dataset.index || "0");
+
+        index = (index - 1 + images.length) % images.length;
+        card.dataset.index = index;
+
+        updateSlide(card, index);
+    }
+
+});
+</script>
+
+
+</body>
+</html>
